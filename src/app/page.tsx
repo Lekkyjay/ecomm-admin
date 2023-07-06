@@ -15,13 +15,5 @@ export default function Home() {
     }
   }, [isOpen, onOpen]);
   
-  return (
-    <div className="p-4">
-      <UserButton afterSignOutUrl="/" />
-      <Modal title="Test" description="Test Desc" isOpen onClose={() => {}}>
-        Children
-      </Modal>
-      Root Page
-    </div>
-  )
+  return null
 }
