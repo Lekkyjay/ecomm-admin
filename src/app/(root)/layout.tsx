@@ -21,7 +21,7 @@ export default async function SetupLayout({
   });
 
   if (store) {
-    redirect(`/dashboard/${store.id}`);
+    redirect(`/${store.id}`);
   };
 
   return (
