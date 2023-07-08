@@ -15,6 +15,7 @@ model Store {
   id              String    @id @default(uuid())
   name            String
   userId          String
+  sizes           Size[]     @relation("StoreToSize")
   categories      Category[] @relation("StoreToCategory")
   billboards      Billboard[] @relation("StoreToBillboard")
   createdAt       DateTime   @default(now())
@@ -46,4 +47,16 @@ model Category {
 
   @@index([storeId])
   @@index([billboardId])
+}
+
+model Size {
+  id          String    @id @default(uuid())
+  storeId     String    // Foreign Key to Store
+  store       Store     @relation("StoreToSize", fields: [storeId], references: [id])
+  name        String
+  value       String
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@index([storeId])
 }
